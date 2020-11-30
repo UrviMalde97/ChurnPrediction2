@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Customer Churn Prediction</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='fonts/material-icon/css/material-design-iconic-font.min.css') }}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .container{
+            margin-left:auto !important;
+            text-align:center;
+        }
+        h1.churnratetitle
+        {
+          padding: 50px;
+          font-weight: bold;
+          color: #222;
+          font-family: 'Roboto Slab';
+          text-transform: uppercase;
+          text-align:center;
+          margin:0;
+          text-decoration: underline;
+        }
+        .homepagebutton{
+            background: transparent;
+            border: 2px solid #2e6da4;
+            color: #2e6da4;
+            font-size: 20px;
+            padding: 8px 40px;
+        }
+        .homepagebutton:hover{
+            background:#2e6da4;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+
+    <div class="container" >
+        <h1 class="churnratetitle"> Churn Rate </h1>
+        {% if result==1 %}
+        <img src="{{ url_for('static', filename='images/true.jpg') }}" id="true">
+        {% else %}
+        <img src="{{ url_for('static', filename='images/false.jpg') }}" id="false">
+        {% endif %}
+        <br><br>
+        <a href='/' class="btn btn-primary homepagebutton">Home Page</a>
+        <br><br>
+
+    </div>
+
+
+
+</div>
+
+<!-- JS -->
+<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

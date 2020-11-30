@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Customer Churn Prediction</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- Font Icon -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='fonts/material-icon/css/material-design-iconic-font.min.css') }}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .container{
+            margin: auto;
+            text-align: center;
+        }
+        .container>form>h2{
+        text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+
+    <div class="container">
+        <form action="/predict" method="POST" class="appointment-form" id="appointment-form">
+            <h2>Customer Churn Prediction</h2>
+            <div class="form-group-1 text-left ">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="number" name="acc_length" id="acc_length" placeholder="Account Length" required/>
+                    </div>
+                    <div class="col-md-6">
+                        <select name="international_plan" id="international_plan">
+                            <option selected value="">Do you have International plan?</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select name="voice_plan" id="voice_plan">
+                            <option selected value="">Do you have Voice mail plan?</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" name="vmail_number" id="vmail_number" placeholder="Number of VMail Messages" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="number" name="day_minutes" id="day_minutes" placeholder="Total Day Minutes" required/>
+
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" name="day_calls" id="day_calls" placeholder="Total Day Calls" required/>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="number" name="eve_minutes" id="eve_minutes" placeholder="Total Eve Minutes" required/>
+
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" name="eve_calls" id="eve_calls" placeholder="Total Eve Calls" required/>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="number" name="night_minutes" id="night_minutes" placeholder="Total Night Minutes" required/>
+
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" name="night_calls" id="night_calls" placeholder="Total Night Calls" required/>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="number" name="intl_minutes" id="intl_minutes" placeholder="Total International Minutes" required/>
+
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" name="intl_calls" id="intl_calls" placeholder="Total International Calls" required/>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="number" name="cust_service_calls" id="cust_service_calls" placeholder="Customer Service Calls" required/>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="select-list">
+                            <select name="model" id="model">
+                            <option selected value="">Which model you want to predict for?</option>
+                            <option value="LogisticRegression">LogisticRegression</option>
+                            <option value="DecisionTreeClassifier">DecisionTreeClassifier</option>
+                            <option value="KNeighborsClassifier">KNeighborsClassifier</option>
+                            <option value="RandomForestClassifier">RandomForestClassifier</option>
+                            <option value="GaussianNB">GaussianNB</option>
+                            <option value="SVC">SVC</option>
+                            <option value="MLPClassifier">MLPClassifier</option>
+                            <option value="BaggingClassifier">BaggingClassifier</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-submit">
+                <input type="submit" name="submit" id="submit" class="submit" value="Predict"/>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- JS -->
+<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
