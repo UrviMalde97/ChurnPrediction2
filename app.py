@@ -46,7 +46,7 @@ def predict():
 
         train_model(telecom)
         print('******************Completed******************')
-    return 'Re-Run'
+    return render_template("index.html")
 
 
 
